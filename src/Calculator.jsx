@@ -3,7 +3,8 @@ import React , {useState} from "react";
 import './calculator.css'
 
 function Calculator(){
-    const [number , setNumber] = useState('20 + 10 ');
+    const [number , setNumber] = useState('');
+    const [buttons , setButtons] = useState('')
 
     const multiply = ()=>{
 
@@ -37,7 +38,7 @@ function Calculator(){
                     <h2 className="Headername">CHOKOE SCI CALCULATOR</h2>
                 </div>
                 <div className="display">
-                    <input type="text" readOnly value={number} ></input>
+                    <input type="text" readOnly value={buttons} ></input>
                 </div>
                 <div className="Buttons">
                     <div className="group0">
@@ -46,7 +47,11 @@ function Calculator(){
                         <button className="operators2" onClick={divide()}>/</button>
                     </div>
                     <div className="group1">
-                        <button>9</button>
+                        <button
+                            value={buttons}
+                            onClick={(e) => setButtons(e.target.value)}
+
+                        >9</button>
                         <button>8</button>
                         <button>7</button>
                         <button className="operators2" onClick={multiply()}>x</button>
